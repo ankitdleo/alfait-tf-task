@@ -1,0 +1,12 @@
+apiVersion: v2
+name: chartmuseum-with-cronjob
+description: A Helm chart that includes Chartmuseum and a CronJob
+type: application
+version: 0.1.1
+appVersion: "1.0"
+
+dependencies:
+- name: hello-kubernetes
+  repository: file://charts/hello-kubernetes
+  version: 1.0.0
+  condition: hello-kubernetes.enabled

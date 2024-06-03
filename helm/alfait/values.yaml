@@ -1,0 +1,18 @@
+cronjob:
+  schedule: "0 0 * * *"
+  job:
+    image: busybox
+    command: ['sh', '-c', 'echo Hello, Chartmuseum!']
+    
+### Sub Charts Specific Values ###
+hello-kubernetes:
+  enabled: true
+  deployment:
+    replicaCount: 2
+    container:
+      image:
+        repository: "paulbouwer/hello-kubernetes"
+        tag: "" # uses chart appVersion if not provided
+        pullPolicy: IfNotPresent
+      port: 8080
+
